@@ -1,1 +1,2 @@
 Simple text in .txt file
+Added text in master branch
