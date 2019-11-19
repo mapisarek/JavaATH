@@ -1,0 +1,74 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Money transfer</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+  </head>
+  
+  
+  <body>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mx-auto" style="margin-top: 35px;">
+<div class="card">
+    <article class="card-body">
+      <h4 class="card-title text-center mb-4 mt-1">Money transfer</h4>
+      <hr>
+      
+      <form method="post" th:action="@{/}" th:object="${transfer}" enctype="multipart/form-data">
+      
+        <div class="form-group">
+          <div class="input-group">
+            <input  name="" class="form-control" th:field="*{FirstName}" placeholder="Firstname" type="text">
+          </div> <!-- input-group.// -->
+        </div> <!-- form-group// -->
+     
+       <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('FirstName')}">
+        <p>First name not valid</p>
+      </div>
+        
+        <div class="form-group">
+          <div class="input-group">
+            <input name="" class="form-control" th:field="*{LastName}" placeholder="Lastname" type="text">
+          </div> <!-- input-group.// -->
+        </div> <!-- form-group// -->
+        
+               <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('LastName')}">
+        <p>Last name not valid</p>
+      </div>
+        
+                <div class="form-group">
+          <div class="input-group">
+            <input name="" class="form-control" th:field="*{DestinationAccount}" placeholder="Account number" type="text">
+          </div> <!-- input-group.// -->
+        </div> <!-- form-group// -->
+            
+               <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('DestinationAccount')}">
+        <p>Account number not valid</p>
+      </div>
+        
+                        <div class="form-group">
+          <div class="input-group">
+            <input name="" class="form-control" th:field="*{TransferTitle}" placeholder="Transfer title" type="text">
+          </div> <!-- input-group.// -->
+        </div> <!-- form-group// -->
+        
+               <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('TransferTitle')}">
+        <p>Transfer title not valid.</p>
+      </div>
+          
+                <div class="form-group">
+          <div class="input-group">
+            <input name=""  th:field="*{TransferAmount}" class="form-control" placeholder="Money amount" type="text">
+         </div> 
+        </div> 
+        
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </div> <!-- form-group// -->
+      </form>
+    </article>
+  </div> <!-- card.// -->
+
+  </body>
+</html>

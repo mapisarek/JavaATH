@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+ <head>
+    <title>Upload file form</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+  </head>
+<body>
+
+	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 mx-auto" style="margin-top: 35px;" th:if="${message}">
+		<h2 th:text="${message}"/>
+	</div>
+	
+<form method="POST" enctype="multipart/form-data" action="/upload">
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 mx-auto" style="margin-top: 35px;">
+<div class="card">
+    <article class="card-body">
+      <h4 class="card-title text-center mb-4 mt-1">Upload your file</h4>
+      <hr>
+      <div class="form-group">
+  <div class="custom-file">
+    <input type="file" name="file" class="custom-file-input" id="customFile">
+    <label class="custom-file-label" for="customFile">Choose file</label>
+    </div></div>
+     <div class="form-group col-xs-3 col-sm-3 col-md-3 col-lg-3 mx-auto" >
+          <button type="submit" class="btn btn-primary btn-block">Upload!</button>
+        </div> <!-- form-group// -->
+        
+  </article>
+  
+  </div>
+  </div>
+</form>
+</body>
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+</html>
+
